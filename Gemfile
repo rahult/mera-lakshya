@@ -20,4 +20,5 @@ gem 'jquery-rails'
 group :development do
   gem 'powder'
   gem 'pry'
+  gem 'heroku'
 end
