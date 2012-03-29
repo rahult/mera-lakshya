@@ -9,7 +9,7 @@
                 <% User.all.each_with_index do |user, index| %>
                     seriesOptions[<%= index %>] = {
                         name: "<%= user %>",
-                        data: <%= raw user.data %>,
+                        data: <%= user.data %>,
                         shadow : true,
                         marker : {
                           enabled : true,
