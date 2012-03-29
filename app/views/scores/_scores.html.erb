@@ -1,0 +1,27 @@
+<table class="table-striped">
+    <thead>
+      <tr>
+        <th>Club</th>
+        <th>User</th>
+        <th>Date</th>
+        <th>Score</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+<% scores.each do |score| %>
+    <tbody>
+      <tr>
+        <td><%= score.club %></td>
+        <td><%= score.user %></td>
+        <td><%= score.date.to_date %></td>
+        <td><%= score.score %></td>
+        <td>
+          <%= link_to 'Show', score, class: "btn" %>
+          <%= link_to 'Edit', edit_score_path(score), class: "btn" %>
+          <%= link_to 'Destroy', score, confirm: 'Are you sure?', method: :delete, class: "btn btn-danger" %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+</table>

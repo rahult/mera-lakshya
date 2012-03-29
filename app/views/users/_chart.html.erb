@@ -1,0 +1,48 @@
+<% content_for :head do %>
+    <script type="text/javascript">
+        $(function() {
+            var seriesOptions = [],
+                yAxisOptions = [],
+                colors = Highcharts.getOptions().colors;
+
+
+                <% User.all.each_with_index do |user, index| %>
+                    seriesOptions[<%= index %>] = {
+                        name: "<%= user %>",
+                        data: <%= raw user.data %>,
+                        shadow : true,
+                        marker : {
+                          enabled : true,
+                          radius : 3
+                        }
+                    };
+                <% end %>
+
+                createChart();
+
+
+            // create the chart when all data is loaded
+            function createChart() {
+
+                chart = new Highcharts.StockChart({
+                    chart: {
+                        renderTo: 'container'
+                    },
+
+                    rangeSelector: {
+                        selected: 4
+                    },
+
+                    tooltip: {
+                        pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b><br/>',
+                        valueDecimals: 0
+                    },
+
+                    series: seriesOptions
+                });
+            }
+        });
+    </script>
+<% end %>
+
+<div id="container" style="height: 500px; min-width: 500px"></div>

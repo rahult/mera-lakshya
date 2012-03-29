@@ -9,6 +9,7 @@
     <%= stylesheet_link_tag    "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
+    <%= yield :head if content_for? :head %>
   </head>
 
   <body>
@@ -30,7 +31,7 @@
             <p class="navbar-text pull-right">
               <% if user_signed_in? %>
                 G'day <%= link_to current_user, edit_user_registration_path %>
-                | <%= link_to "Logout", destroy_user_session_path %>
+                | <%= link_to "Logout", destroy_user_session_path, method: :delete %>
               <% else %>
                 <%= link_to "Sign In", new_user_session_path %>
                 or
@@ -44,15 +45,17 @@
 
     <div class="container-fluid">
       <div class="row-fluid">
-        <div class="span3">
-        </div><!--/span-->
-        <div class="span9">
+        <div class="span12">
           <% flash.each do |name, msg| %>
             <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
-              <a class="close" data-dismiss="alert">
+              <a class="close" data-dismiss="alert">x</a>
               <%= msg  %>
             </div>
           <% end %>
+        </div><!--/span-->
+        <div class="span3">
+        </div><!--/span-->
+        <div class="span9">
           <%= yield %>
         </div><!--/span-->
       </div><!--/row-->

@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :timeoutable
 
   belongs_to :club
+  has_many   :scores
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation,
@@ -12,5 +13,9 @@ class User < ActiveRecord::Base
 
   def to_s
     "#{first_name} #{last_name}".strip
+  end
+
+  def data
+    scores.map { |s| [s.date.to_i, s.score] }.inspect
   end
 end
