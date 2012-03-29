@@ -7,15 +7,16 @@ class User < ActiveRecord::Base
   belongs_to :club
   has_many   :scores
 
-  # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation,
                   :remember_me, :first_name, :last_name, :club_id
 
-  def to_s
+  def name
     "#{first_name} #{last_name}".strip
   end
 
+  alias :to_s :name
+
   def data
-    scores.map { |s| [s.date.to_i, s.score] }.inspect
+    scores.map { |s| [s.date.to_i * 1000, s.score] }.inspect
   end
 end

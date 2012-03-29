@@ -1,32 +1,32 @@
 <% content_for :head do %>
     <script type="text/javascript">
+        var data =
         $(function() {
-            var seriesOptions = [],
-                yAxisOptions = [],
-                colors = Highcharts.getOptions().colors;
+            var seriesOptions = [];
+            var yAxisOptions = [];
+            var colors = Highcharts.getOptions().colors;
 
 
-                <% User.all.each_with_index do |user, index| %>
-                    seriesOptions[<%= index %>] = {
-                        name: "<%= user %>",
-                        data: <%= user.data %>,
-                        shadow : true,
-                        marker : {
-                          enabled : true,
-                          radius : 3
-                        }
-                    };
-                <% end %>
+            <% users.each_with_index do |user, index| %>
+                seriesOptions[<%= index %>] = {
+                    name: "<%= user %>",
+                    data: <%= user.data %>,
+                    shadow : true,
+                    marker : {
+                      enabled : true,
+                      radius : 3
+                    }
+                };
+            <% end %>
 
-                createChart();
-
+            createChart();
 
             // create the chart when all data is loaded
             function createChart() {
 
                 chart = new Highcharts.StockChart({
                     chart: {
-                        renderTo: 'container'
+                        renderTo: 'score-chart'
                     },
 
                     rangeSelector: {
@@ -45,4 +45,4 @@
     </script>
 <% end %>
 
-<div id="container" style="height: 500px; min-width: 500px"></div>
+<div id="score-chart"></div>

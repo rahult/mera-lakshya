@@ -1,6 +1,4 @@
 class ClubsController < ApplicationController
-  # GET /clubs
-  # GET /clubs.json
   def index
     @clubs = Club.all
 
@@ -10,8 +8,6 @@ class ClubsController < ApplicationController
     end
   end
 
-  # GET /clubs/1
-  # GET /clubs/1.json
   def show
     @club = Club.find(params[:id])
 
@@ -21,8 +17,6 @@ class ClubsController < ApplicationController
     end
   end
 
-  # GET /clubs/new
-  # GET /clubs/new.json
   def new
     @club = Club.new
 
@@ -32,13 +26,10 @@ class ClubsController < ApplicationController
     end
   end
 
-  # GET /clubs/1/edit
   def edit
     @club = Club.find(params[:id])
   end
 
-  # POST /clubs
-  # POST /clubs.json
   def create
     @club = Club.new(params[:club])
 
@@ -53,8 +44,6 @@ class ClubsController < ApplicationController
     end
   end
 
-  # PUT /clubs/1
-  # PUT /clubs/1.json
   def update
     @club = Club.find(params[:id])
 
@@ -69,8 +58,6 @@ class ClubsController < ApplicationController
     end
   end
 
-  # DELETE /clubs/1
-  # DELETE /clubs/1.json
   def destroy
     @club = Club.find(params[:id])
     @club.destroy

@@ -10,6 +10,9 @@
   <%= @club.address %>
 </p>
 
+<%= render "users/chart", users: @club.users %>
+<%= render "scores/scores", scores: @club.scores %>
 
-<%= link_to 'Edit', edit_club_path(@club) %> |
-<%= link_to 'Back', clubs_path %>
+
+<%= link_to 'Edit', edit_club_path(@club), class: "btn" %>
+<%= link_to 'Back', clubs_path, class: "btn" %>

@@ -3,7 +3,7 @@
   <%= @user %>
 </p>
 
-<%= render "chart", scores: @user.scores %>
-<%#= render "scores/scores", scores: @user.scores %>
+<%= render "chart", users: [@user] %>
+<%= render "scores/scores", scores: @user.scores %>
 
 <%= link_to 'Back', root_path %>

@@ -1,0 +1,21 @@
+<h1>Users</h1>
+
+<%= render "chart", users: @users %>
+
+<table class="table table-striped table-bordered">
+  <tr>
+    <th>Name</th>
+    <th>Actions</th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.name %></td>
+    <td>
+      <%= link_to 'Show', user, class: "btn" %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<br />
