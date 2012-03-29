@@ -1,0 +1,19 @@
+<%= simple_form_for(@score) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :club %>
+    <%= f.association :user %>
+    <%= f.input :date %>
+    <%= f.input :range %>
+    <%= f.input :weather %>
+    <%= f.input :score %>
+    <%= f.input :comments %>
+    <%= f.input :target_photo_uid %>
+    <%= f.input :target_photo_name %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

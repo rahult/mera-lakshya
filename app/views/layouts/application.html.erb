@@ -1,14 +1,66 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>MeraLakshya</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Mera Lakshya (My Aim)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mera Lkashya (My Aim)">
+    <meta name="author" content="Rahul Trikha">
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
 
-<%= yield %>
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <%= link_to "Mera Lakshya", root_path, class: "brand" %>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <%= content_tag :li, link_to("Home",   root_path), class: "#{ "active" if current_page?(root_path) }" %>
+              <%= content_tag :li, link_to("Clubs",  clubs_path), class: "#{ "active" if current_page?(clubs_path) }" %>
+              <%= content_tag :li, link_to("Scores", scores_path), class: "#{ "active" if current_page?(scores_path) }" %>
+            </ul>
+            <p class="navbar-text pull-right">
+              <% if user_signed_in? %>
+                G'day <%= link_to current_user, edit_user_registration_path %>
+                | <%= link_to "Logout", destroy_user_session_path %>
+              <% else %>
+                <%= link_to "Sign In", new_user_session_path %>
+                or
+                <%= link_to "Sign Up", new_user_registration_path %>
+              <% end %>
+            </p>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
 
-</body>
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3">
+        </div><!--/span-->
+        <div class="span9">
+          <% flash.each do |name, msg| %>
+            <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+              <a class="close" data-dismiss="alert">
+              <%= msg  %>
+            </div>
+          <% end %>
+          <%= yield %>
+        </div><!--/span-->
+      </div><!--/row-->
+      <hr>
+
+      <footer>
+        <p>&copy; NeuralApps <%= Date.today.year %></p>
+      </footer>
+    </div><!--/.fluid-container-->
+  </body>
 </html>

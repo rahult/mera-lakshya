@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Club:</b>
+  <%= @score.club_id %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @score.user_id %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @score.date %>
+</p>
+
+<p>
+  <b>Range:</b>
+  <%= @score.range %>
+</p>
+
+<p>
+  <b>Weather:</b>
+  <%= @score.weather %>
+</p>
+
+<p>
+  <b>Score:</b>
+  <%= @score.score %>
+</p>
+
+<p>
+  <b>Comments:</b>
+  <%= @score.comments %>
+</p>
+
+<p>
+  <b>Target photo uid:</b>
+  <%= @score.target_photo_uid %>
+</p>
+
+<p>
+  <b>Target photo name:</b>
+  <%= @score.target_photo_name %>
+</p>
+
+
+<%= link_to 'Edit', edit_score_path(@score) %> |
+<%= link_to 'Back', scores_path %>

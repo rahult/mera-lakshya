@@ -14,3 +14,8 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require_tree .
+
+jQuery ->
+  $("a[rel=popover]").popover()
+  $(".tooltip").tooltip()
+  $("a[rel=tooltip]").tooltip()

@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  club_id: 1
+  user_id: 1
+  date: 2012-03-29 17:44:50
+  range: MyString
+  weather: MyText
+  score: 1
+  comments: MyText
+  target_photo_uid: MyString
+  target_photo_name: MyString
+
+two:
+  club_id: 1
+  user_id: 1
+  date: 2012-03-29 17:44:50
+  range: MyString
+  weather: MyText
+  score: 1
+  comments: MyText
+  target_photo_uid: MyString
+  target_photo_name: MyString
