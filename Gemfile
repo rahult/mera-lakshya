@@ -26,4 +26,5 @@ group :development do
   gem 'pry'
   gem 'heroku'
   gem 'foreman'
+  gem 'taps'
 end
