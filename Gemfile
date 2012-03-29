@@ -17,7 +17,11 @@ end
 
 gem 'jquery-rails'
 
+gem 'thin'
+
 group :development do
   gem 'powder'
   gem 'pry'
+  gem 'heroku'
+  gem 'foreman'
 end
